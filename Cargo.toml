@@ -13,11 +13,6 @@ readme = "README.md"
 documentation = "https://esp-rs.github.io/esp-idf-svc/"
 rust-version = "1.66"
 
-[patch.crates-io]
-esp-idf-sys = { git = "https://github.com/esp-rs/esp-idf-sys.git" }
-esp-idf-hal = { git = "https://github.com/esp-rs/esp-idf-hal.git" }
-embedded-svc = { git = "https://github.com/esp-rs/embedded-svc.git" }
-
 [features]
 default = ["std"]
 
@@ -35,8 +30,8 @@ log = { version = "0.4", default-features = false }
 uncased = "0.9.7"
 anyhow = { version = "1", default-features = false, optional = true } # Only used by the deprecated httpd module
 embedded-svc = { version = "0.25", default-features = false }
-esp-idf-sys = { version = "0.33", default-features = false, features = ["native"] }
-esp-idf-hal = { version = "0.41", default-features = false, features = ["esp-idf-sys"] }
+esp-idf-sys = { git = "https://github.com/gopakumarce/esp-idf-sys.git", branch = "gopa-v0.33.0_test", features = ["native", "binstart"] }
+esp-idf-hal = { git = "https://github.com/gopakumarce/esp-idf-hal.git", branch = "gopa-v0.41.0", default-features = false, features = ["esp-idf-sys"] }
 embassy-sync = { version = "0.2", optional = true }
 embassy-time = { version = "0.1.1", optional = true, features = ["tick-hz-1_000_000"] }
 embassy-futures = "0.1"
@@ -47,7 +42,7 @@ anyhow = "1"
 
 [dev-dependencies]
 anyhow = "1"
-esp-idf-sys = { version = "0.33", features = ["native", "binstart"] }
+esp-idf-sys = { git = "https://github.com/gopakumarce/esp-idf-sys.git", branch = "gopa-v0.33.0_test", features = ["native", "binstart"] }
 futures = "0.3"
 
 [[example]]
